@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 目的：为DAO接口方法提供sql语句配置 -->
+<mapper namespace="com.wx.dao.BackUserDao">
+	
+	<!-- 添加后台用户 -->
+	<insert id="insertUser" parameterType="com.wx.entity.User" >
+		insert into 
+			back_user
+		(id,employ_id,user_name,department_id,password)
+		values
+		(#{id},#{employId},#{userName},#{departmentId},#{password})
+	</insert>
+	
+	<select id="selectAll" resultType="com.wx.entity.User">
+		select 
+			id,employ_id,user_name,department_id,password
+		from 
+			back_user
+	</select>
+	
+	<update id="updatePassword" parameterType="com.wx.entity.User">
+		update back_user
+			set password = #{password}
+		where 
+			id = #{id}
+	</update>
+
+</mapper>
