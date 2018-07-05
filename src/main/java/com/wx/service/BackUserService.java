@@ -5,6 +5,7 @@ import com.common.redisCon.RedisUtil;
 import com.wx.dao.BackUserDao;
 import com.wx.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,13 +31,14 @@ public class BackUserService {
 	}
 
 	// 查询所有用户
+	//@Cacheable("getAllUser")
 	public List<User> findAll() {
-		List<User> listCache = redisUtil.hashGetAll("back_user");
-		if (listCache.size()>0) {
+		//List<User> listCache = redisUtil.hashGetAll("back_user");
+		/*if (listCache.size()>0) {
 			return listCache;
-		}
+		}*/
 		List<User> user=dao.selectAll();
-		redisUtil.putList("back_user",user);
+		//redisUtil.putList("back_user",user);
 		return user;
 	}
 	// 修改用户密码
