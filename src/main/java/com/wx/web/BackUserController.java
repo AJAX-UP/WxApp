@@ -5,6 +5,7 @@ import com.common.util.StringUtil;
 import com.wx.dto.ResponseResult;
 import com.wx.entity.User;
 import com.wx.service.BackUserService;
+import net.sf.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +51,7 @@ public class BackUserController {
 			return new ResponseResult();
 		}
 
-		return new ResponseResult(0, "失败");
+		return new ResponseResult(0, "失败",null);
 	}
 
 	/**
@@ -63,7 +64,8 @@ public class BackUserController {
 	@ResponseBody
 	public ResponseResult addUser() {
 		List<User> u =service.findAll();
-		return new ResponseResult(0, u.toString());
+
+		return new ResponseResult(0,"成功", u);
 	}
 	/**
 	 * 后台用户修改密码
@@ -75,13 +77,13 @@ public class BackUserController {
 	public ResponseResult modifyPassword(@RequestBody User user) {
 
 		if (StringUtil.isBlank(user.getPassword()) || user.getId() == null) {
-			return new ResponseResult(0, "id 和 密码不能为空");
+			return new ResponseResult(0, "id 和 密码不能为空",null);
 		}
 
 		if (1 == service.modifyPassword(user)) {
 			return new ResponseResult();
 		}
-		return new ResponseResult(0, "失败");
+		return new ResponseResult(0, "失败",null);
 	}
 	
 	/**

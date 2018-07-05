@@ -1,6 +1,7 @@
 package com.wx.web;
 
 import com.common.weixin.AesUtil;
+import com.common.weixin.HttpRequest;
 import com.wx.dto.ResponseResult;
 import net.sf.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +24,7 @@ public class getPhoneNumController {
      */
     @RequestMapping(value = "/getPhoneNum",method = RequestMethod.POST)
     @ResponseBody
-    public ResponseResult addUser(@RequestParam Map<String,String> map,HttpRequest request) {
+    public ResponseResult addUser(@RequestParam Map<String,String> map) {
         JSONObject res = new JSONObject();
         String encryptedData =map.get("encryptedData");
         String iv =map.get("iv");
@@ -74,6 +75,6 @@ public class getPhoneNumController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return new ResponseResult(0, "失败");
+        return new ResponseResult(0, "失败",null);
     }
 }
