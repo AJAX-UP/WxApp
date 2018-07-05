@@ -7,13 +7,13 @@ import java.util.List;
 /**
  * 
  * @author wesion
- * {ret_code} 响应码： 1 -- 成功 ； 0 -- 失败
+ * {ret_code} 响应码： 200 -- 成功 ；其他 失败
  * {ret_info} 提示信息： 成功； 失败
  */
 public class ResponseResult {
 	
 	// 相应成功
-	private int ret_code = 1;
+	private int ret_code =200;
 	private String ret_info = "成功";
 	private List ret_data = null;
 	
