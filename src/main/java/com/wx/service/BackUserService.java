@@ -31,13 +31,13 @@ public class BackUserService {
 
 	// 查询所有用户
 	public List<User> findAll() {
-		/*List listCache =redisUtil.lGet("back_user",0,-1);
+		List<User> listCache = redisUtil.hashGetAll("back_user");
 		if (listCache.size()>0) {
 			return listCache;
-		}*/
-		List<User> u=dao.selectAll();
-		//redisUtil.lSet("back_user",u);
-		return u;
+		}
+		List<User> user=dao.selectAll();
+		redisUtil.putList("back_user",user);
+		return user;
 	}
 	// 修改用户密码
 	public int modifyPassword(User user) {
