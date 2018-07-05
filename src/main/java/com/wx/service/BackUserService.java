@@ -7,6 +7,8 @@ import com.wx.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BackUserService {
 	
@@ -26,6 +28,15 @@ public class BackUserService {
 		}
 		return result;
 	}
+
+	// 查询所有用户
+	/*public List<User> findAll() {
+		List<User> listCache = redisUtil.hashGetAll("back_user");
+		if (listCache != null) {
+			return listCache;
+		}
+		return dao.selectAll();
+	}*/
 	// 修改用户密码
 	public int modifyPassword(User user) {
 		return dao.updatePassword(user);

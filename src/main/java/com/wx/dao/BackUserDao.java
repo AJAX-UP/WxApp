@@ -3,6 +3,7 @@ import com.wx.entity.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
+import java.util.List;
 
 
 @Repository
@@ -12,7 +13,7 @@ public interface BackUserDao {
 	int insertUser(User user);
 	
 	// 查询所有用户
-	Collection<User> selectAll();
+	List<User> selectAll();
 	
 	// 修改用户密码
 	int updatePassword(User user);

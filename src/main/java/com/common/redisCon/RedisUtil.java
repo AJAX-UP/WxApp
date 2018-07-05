@@ -19,6 +19,12 @@ public class RedisUtil {
 	public void hashPut(String key, String filed, Serializable object) {
 		redisTemplate.opsForHash().put(key, filed, object);
 	}
+	@SuppressWarnings("unchecked")
+	public <T extends Serializable> List<T> hashGetAll(String key) {
+
+		return (List)redisTemplate.opsForHash().values(key);
+	}
+
 	// hash put
 	public void Put(String key, Serializable object) {
 		redisTemplate.opsForValue().set(key, object);
