@@ -52,6 +52,19 @@ public class BackUserController {
 		return new ResponseResult(0, "失败");
 	}
 
+	/**
+	 * 添加后台用户
+	 *
+	 *            后台管理用户
+	 * @return responseResult: 响应结果 {code = 1 , message = "成功" }
+	 */
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	@ResponseBody
+	public ResponseResult addUser() {
+
+		return new ResponseResult(0, "失败");
+	}
+
 
 
 	/**
