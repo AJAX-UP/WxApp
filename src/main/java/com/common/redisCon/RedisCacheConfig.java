@@ -54,6 +54,7 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
 	}
 
 	public JedisConnectionFactory getJedisConnecionFactory() {
+		jedisConnectionFactory.afterPropertiesSet();
 		return jedisConnectionFactory;
 	}
 

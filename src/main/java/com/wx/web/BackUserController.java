@@ -59,12 +59,12 @@ public class BackUserController {
 	 *
 	 * @return responseResult: 响应结果 {code = 1 , message = "成功" }
 	 */
-	/*@RequestMapping(value = "/select", method = RequestMethod.GET)
+	@RequestMapping(value = "/select", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseResult addUser() {
 		List<User> u =service.findAll();
 		return new ResponseResult(0, u.toString());
-	}*/
+	}
 	/**
 	 * 后台用户修改密码
 	 *
