@@ -1,6 +1,4 @@
-package com.wx.dto;
-
-import net.sf.json.JSONObject;
+package com.common.util;
 
 import java.util.List;
 
@@ -19,7 +17,7 @@ public class ResponseResult {
 	
 	public ResponseResult() {}
 	
-	public ResponseResult(int ret_code, String ret_info,List ret_json) {
+	public ResponseResult(int ret_code, String ret_info, List ret_json) {
 		this.ret_code = ret_code;
 		this.ret_info = ret_info;
 		this.ret_data = ret_json;

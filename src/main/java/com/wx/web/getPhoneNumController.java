@@ -1,8 +1,8 @@
 package com.wx.web;
 
+import com.common.util.ResponseResult;
 import com.common.weixin.AesUtil;
 import com.common.weixin.HttpRequest;
-import com.wx.dto.ResponseResult;
 import net.sf.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
 

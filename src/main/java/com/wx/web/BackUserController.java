@@ -1,8 +1,8 @@
 package com.wx.web;
 
 import com.common.jsonAnalysis.JsonParameterAnalysis;
+import com.common.util.ResponseResult;
 import com.common.util.StringUtil;
-import com.wx.dto.ResponseResult;
 import com.wx.entity.User;
 import com.wx.service.BackUserService;
 import com.wx.service.CallApiCommon;
