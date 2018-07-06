@@ -5,12 +5,12 @@ import com.common.util.StringUtil;
 import com.wx.dto.ResponseResult;
 import com.wx.entity.User;
 import com.wx.service.BackUserService;
-import net.sf.json.JSONObject;
+import com.wx.service.CallApiCommon;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import net.sf.json.JSONObject;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +29,9 @@ public class BackUserController {
 
 	@Autowired
 	private BackUserService service;
+
+	@Autowired
+	private CallApiCommon callApiCommon;
 	
 	@Autowired
 	private JsonParameterAnalysis analysis;
@@ -63,9 +66,8 @@ public class BackUserController {
 	@RequestMapping(value = "/select", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseResult addUser() {
-		List<User> u =service.findAll();
-
-		return new ResponseResult(0,"成功", u);
+		List li=service.findAll();
+		return new ResponseResult(0,"成功",li);
 	}
 	/**
 	 * 后台用户修改密码
